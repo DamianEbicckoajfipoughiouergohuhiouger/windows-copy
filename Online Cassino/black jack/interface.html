@@ -1,0 +1,426 @@
+<html>
+    <head class='blak'>
+        <link rel="stylesheet" href="interface.css">
+        <title> Blackjack </title>
+    </head>
+        <body style="background-color: #005B13	;">
+           <h1>WELCOME TO JAINAM CASSINO</h1>
+            <h1>Blackjack </h1>
+            <h4>NO REFUNDS</h4>
+        
+        <div class="flex-container">
+            <div><button class="button" name='bet' onclick="Betting()">Set Bet</button></div>
+            <div><button class="hidden" name='game' onclick="Hit()">Hit</button></div>
+            <div><button id="start" class="button" name='bet' onclick="StartGame()">Start </div>
+            <div><button class="hidden" name='game' onclick="Stand()">Stand</button></div>
+            <div><button class="button" name='bet' onclick="Betting('max')">Bet all</button></div>
+        </div>
+        <div id='bet text' class="counter" font-size="15px">Current bet: $100
+        </div>
+        <div id='money text' class="counter" font-size="15px">Bank: $400
+        </div>
+        <div class="showcase">
+            <div class="hidden" name="table">
+                <p id="playTot">Player total:</p>
+                <p id="playLast">Last card:</p>
+                <img id='Pc' src="club.png" alt="the player's card" class="player-card">
+            </div>
+            <div class="hidden" name="table">
+                <p id="comTot">Computer total:</p>
+                <p >Last card:</p>
+                <img src="heart.png" alt="the computer's card" class="bot-card" id="comLast">
+            </div>
+        </div>
+<div class="row">
+        <img src="diamond.png" class='small-img' width="50" height="50">
+        <img src="spade.png" class='small-img' width="50" height="50">
+        <img src="heart.png" class='small-img' width="50" height="50">
+        <img src="club.png" class='small-img' width="50" height="50">
+        <img src="diamond.png" class='small-img' width="50" height="50">
+        <img src="spade.png" class='small-img' width="50" height="50">
+        <img src="heart.png" class='small-img' width="50" height="50">
+        <img src="club.png" class='small-img' width="50" height="50">
+    </div>
+        <script>
+                let bank = 400
+                let bet = 100
+                let sound = document.getElementByNam
+                let playerNum = Math.floor(Math.random() * 5+1);
+                let comNum = Math.floor(Math.random() * 3+6);
+                let showPc = document.getElementById('Pc');
+                let showCC = document.getElementById('comLast');
+                let cards = document.getElementsByName('table');
+                let gameButtons = document.getElementsByName('game');
+                let betButtons = document.getElementsByName('bet');
+                let lost = document.getElementById('start');
+                let randomComColor = Math.floor(Math.random() * 4+1);
+                let randomComNumber = Math.floor(Math.random() * 13);
+                let randomColor = Math.floor(Math.random() * 4+1);
+                let randomNumber = Math.floor(Math.random() * 13);
+
+                function Betting(Type) {
+                    var tot = bet+bank
+                    switch (Type) {
+                        case 'max':
+                            bet = tot
+                            bank = 0
+                            document.getElementById('bet text').innerText='Current bet: $'+bet
+                            document.getElementById('money text').innerText='Bank: $'+bank
+                            break;
+                        default:
+                            var answer = parseInt(window.prompt('how much would you like to bet?'))
+                            switch (true) {
+                                case answer >= 1 && answer<=answer+bank:
+                                    bet = answer
+                                    bank = tot-bet
+                                    document.getElementById('bet text').innerText='Current bet: $'+bet
+                                    document.getElementById('money text').innerText='Bank: $'+bank
+                                    break;
+                                default:
+                                    alert('something went wrong')
+                    
+                            }
+    
+                        
+                    }
+                }
+                function StartGame() {
+                    var audio = new Audio('shuffle.mp3');
+                    audio.play();
+                    for (var i = 0; i < gameButtons.length; i++) {
+                        gameButtons[i].classList.remove('hidden');
+                        gameButtons[i].classList.add('button');
+                    }
+                
+                    for (var i = 0; i < betButtons.length; i++) {
+                        betButtons[i].classList.add('hidden');
+                        betButtons[i].classList.remove('button');
+                    }
+                    for (var i = 0; i < cards.length; i++) {
+                        cards[i].classList.remove('hidden');
+                        cards[i].classList.add('table');
+                    }
+                    
+                    
+                    
+                    switch (randomComNumber) {
+                        case 0:
+                            switch (true) {
+                                case comNum+11 <= 22:
+                                    comNum+=11
+                                    break;
+                                default:
+                                    comNum+=1
+                            }
+                            break;
+                        case 1:
+                            comNum+=2
+                            break;
+                        case 2:
+                            comNum+=3
+                            break;
+                        case 3:
+                            comNum+=4
+                            break;
+                        case 4:
+                            comNum+=5
+                            break;
+                        case 5:
+                            comNum+=6
+                            break;
+                        case 6:
+                            comNum+=7
+                            break;
+                        case 7:
+                            comNum+=8
+                            break;
+                        case 8:
+                            comNum+=9
+                            break;
+                        case 9:
+                            comNum+=10
+                            break;
+                        case 10:
+                            comNum+=10
+                            break;
+                        case 11:
+                            comNum+=10
+                            break;
+                        case 12:
+                            comNum+=10
+                            break;
+                    }
+                    switch (randomNumber) {
+                        case 0:
+                            switch (true) {
+                                case playerNum+11 <= 22:
+                                    playerNum+=11
+                                    break;
+                                default:
+                                    playerNum+=1
+                            }
+                            break;
+                        case 1:
+                            playerNum+=2
+                            break;
+                        case 2:
+                            playerNum+=3
+                            break;
+                        case 3:
+                            playerNum+=4
+                            break;
+                        case 4:
+                            playerNum+=5
+                            break;
+                        case 5:
+                            playerNum+=6
+                            break;
+                        case 6:
+                            playerNum+=7
+                            break;
+                        case 7:
+                            playerNum+=8
+                            break;
+                        case 8:
+                            playerNum+=9
+                            break;
+                        case 9:
+                            playerNum+=10
+                            break;
+                        case 10:
+                            playerNum+=10
+                            break;
+                        case 11:
+                            playerNum+=10
+                            break;
+                        case 12:
+                            playerNum+=10
+                            break;
+                    }
+                    showCC.src = 'card'+randomComColor+'-'+randomComNumber+'.png'
+                    document.getElementById('comTot').innerText = 'Computer total: '+comNum
+                    showPc.src = 'card'+randomColor+'-'+randomNumber+'.png'
+                    document.getElementById('playTot').innerText = 'Player total: '+playerNum
+                    
+                }
+                function Hit() {
+                    var randomHitColor = Math.floor(Math.random() * 4+1);
+                    var randomHitNumber = Math.floor(Math.random() * 13);
+                    var audio = new Audio('card_place.mp3');
+                    audio.play();
+                    switch (randomHitNumber) {
+                        case 0:
+                            switch (true) {
+                                case playerNum+11 <= 22:
+                                    playerNum+=11
+                                    break;
+                                default:
+                                    playerNum+=1
+                            }
+                            break;
+                        case 1:
+                            playerNum+=2
+                            break;
+                        case 2:
+                            playerNum+=3
+                            break;
+                        case 3:
+                            playerNum+=4
+                            break;
+                        case 4:
+                            playerNum+=5
+                            break;
+                        case 5:
+                            playerNum+=6
+                            break;
+                        case 6:
+                            playerNum+=7
+                            break;
+                        case 7:
+                            playerNum+=8
+                            break;
+                        case 8:
+                            playerNum+=9
+                            break;
+                        case 9:
+                            playerNum+=10
+                            break;
+                        case 10:
+                            playerNum+=10
+                            break;
+                        case 11:
+                            playerNum+=10
+                            break;
+                        case 12:
+                            playerNum+=10
+                            break;
+                    }
+                    document.getElementById('playTot').innerText='Player total: '+playerNum
+                    showPc.src = 'card'+randomHitColor+'-'+randomHitNumber+'.png';
+                    result()
+                }
+                function result(gamer) {
+                    switch (true) {
+                        case playerNum>21:
+                            GameOver('Bust!')
+                            break;
+                    }
+                }
+                function GameOver(type) {
+                    switch (true) {
+                        case bank==0 && type!='You win!' && type!='Its a draw':
+                            lost.innerText='Reset'
+                            document.getElementById('bet text').innerText='You are dirt poor'
+                            for (var i = 0; i < gameButtons.length; i++) {
+                                gameButtons[i].classList.remove('button');
+                                gameButtons[i].classList.add('hidden');
+                            }
+                            lost.setAttribute('onclick', 'window.location.reload();');
+                            lost.classList.remove('hidden');
+                            lost.classList.add('button');
+                            break;
+                        default:
+                            document.getElementById('bet text').innerText=type
+                            for (var i = 0; i < gameButtons.length; i++) {
+                                gameButtons[i].classList.remove('button');
+                                gameButtons[i].classList.add('hidden');
+                            }
+                            lost.classList.remove('hidden');
+                            lost.classList.add('button');
+                            lost.setAttribute('onclick', 'goBack()');
+                            lost.innerText='Continue'
+                            switch (type) {
+                                case 'Bust!':
+                                    bet = Math.ceil(bank/5)
+                                    var endTot = bank
+                                    bank = endTot-bet
+                                    break;
+                                case 'You lose!':
+                                    bet = Math.ceil(bank/5)
+                                    var endTot = bank
+                                    bank = endTot-bet
+                                    break;
+                                case 'You win!':
+                                    var audio = new Audio('yay.mp3');
+                                    audio.play();
+                                    bank+=bet
+                                    break;
+                            }
+                    }
+                    document.getElementById('money text').innerText='Bank: $'+bank
+                }
+                function goBack() {
+                    
+                    document.getElementById('bet text').innerText='Current bet: $'+bet
+
+                    playerNum = Math.floor(Math.random() * 5+1);
+                    comNum = Math.floor(Math.random() * 3+6);
+                    for (var i = 0; i < betButtons.length; i++) {
+                        betButtons[i].classList.add('button');
+                        betButtons[i].classList.remove('hidden');
+                    }
+                    for (var i = 0; i < cards.length; i++) {
+                        cards[i].classList.remove('table');
+                        cards[i].classList.add('hidden');
+                    }
+                    lost.setAttribute('onclick', 'StartGame()');
+                    lost.innerText='Start'
+                    
+                }
+                function Stand(){
+                    var audio = new Audio('card_place.mp3');
+                    audio.play();
+                    while(comNum<playerNum){
+                        switch (randomComNumber) {
+                            case 0:
+                                switch (true) {
+                                    case comNum+11 <= 22:
+                                    comNum+=11
+                                    break;
+                                default:
+                                   comNum+=1
+                                }
+                                break;
+                            case 1:
+                                comNum+=2
+                                break;
+                             case 2:
+                                comNum+=3
+                                break;
+                            case 3:
+                                comNum+=4
+                                break;
+                            case 4:
+                                comNum+=5
+                                break;
+                            case 5:
+                                comNum+=6
+                                break;
+                            case 6:
+                                comNum+=7
+                                break;
+                            case 7:
+                                comNum+=8
+                                break;
+                            case 8:
+                                comNum+=9
+                                break;
+                            case 9:
+                                comNum+=10
+                                break;
+                            case 10:
+                                comNum+=10
+                                break;
+                            case 11:
+                                comNum+=10
+                                break;
+                            case 12:
+                                comNum+=10
+                                break;
+                        }   
+                        switch(true){
+                            case comNum > 21 && comNum > playerNum:
+                                GameOver('You win!')
+                                break;
+                            case comNum == playerNum:
+                                GameOver('Its a draw')
+                                break;
+                            case comNum > playerNum:
+                                GameOver('You lose!')
+                                break;
+                        } 
+                    }
+                    showCC.src = 'card'+randomComColor+'-'+randomComNumber+'.png'
+                    document.getElementById('comTot').innerText = 'Computer total: '+comNum
+                }
+            </script>
+            <br>
+            <br>
+            <br>
+            
+            <p>JAINAM CASSINO IS NOT RESPONSIBLE FOR ANY DAMAGES DONE TO YOUR CHILDREN</p>
+    </body>
+    </head>
+    <body>
+        <style>
+            body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+            .page-footer {
+                background-color: rgb(53, 53, 53);
+                margin-top: auto;
+
+            }
+        </style>
+        
+        
+        <footer class="page-footer" >
+            <p style="color: rgb(255, 255, 255)" >All rights reserved - &#169;              Copyright Developer - Jordan Gaming</p>
+       
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" height="">
+
+            </footer>
+    </body>
+</html>

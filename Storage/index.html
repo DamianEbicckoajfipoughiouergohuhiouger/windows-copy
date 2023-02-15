@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>YouTube to MP3 Converter</title>
+  </head>
+  <body>
+    <form method="post" action="/">
+      <label for="video_url">Enter YouTube Video URL:</label>
+      <input type="text" id="video_url" name="video_url" required>
+      <button type="submit">Convert to MP3</button>
+    </form>
+    {% if audio_file %}
+    <a href="{{ audio_file }}" download>Download MP3</a>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="search.css">
+  </head>
+  <body>
+    <header>
+      <h1 id="search-term">Search Results for: <span id="query"></span></h1>
+    </header>
+    <div id="results">
+      <p>About 928,329 results (0.52 seconds)</p>
+      <div class="result">
+        <a href="../Main/index.html">Generic Website</a>
+        <p>Description of the first search result. It can be several lines long to demonstrate how the text wraps around the image.</p>
+      </div>
+      <div class="result">
+        <a href="../shoe/index.html">Vortex Shoes</a>
+        <p>The shoe companyTM makes and resells 100% authentic shoes made out of the highest quality materials.
+          20M+ Sold
+          Authentic since 2022</p>
+      </div>
+      <div class="result">
+        <a href="../Online Cassino/black jack/interface.html">JoGmer Cassino</a>
+        <p>cassino in British English
+          or casino (kəˈsiːnəʊ ) noun. a card game for two to four players in which players pair cards from their hands with others exposed on the table. Collins English Dictionary.</p>
+      </div>
+      <div class="result">
+        <a href="../Storage/house.html">Family House</a>
+        <p>Family Guy (på svenska tidigare kallad Familjepappan[3]) är en amerikansk tecknad tv-serie som skildrar livet för den märkligt udda, dysfunktionella familjen Griffin </p>
+      </div>
+    </div>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get("query");
+      document.querySelector("#query").innerText = query;
+    </script>
+  </body>
+</html>

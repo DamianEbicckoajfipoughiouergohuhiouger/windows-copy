@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    }
+    
+    header {
+    border-bottom: 1px solid #dadce0;
+    padding: 20px;
+    }
+    
+    h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: normal;
+    }
+    
+    #query {
+    font-weight: bold;
+    }
+    
+    p {
+    margin: 0;
+    line-height: 1.5;
+    color: #70757a;
+    }
+    
+    a {
+    color: #1a0dab;
+    text-decoration: none;
+    }
+    
+    a:hover {
+    text-decoration: underline;
+    }
+    
+    /* Additional styles to match Google's search results page */
+    #search-term {
+    display: inline-block;
+    padding-right: 10px;
+    border-right: 1px solid #dadce0;
+    margin-right: 10px;
+    }
+    
+    #search-term span {
+    color: #1a0dab;
+    }
+    
+    #results {
+    padding: 20px;
+    }
+    
+    .result {
+    margin-bottom: 20px;
+    }
+    
+    .result a {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    }
+    
+    .result p {
+    margin-top: 10px;
+    font-size: 14px;
+    }

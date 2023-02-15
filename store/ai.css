@@ -1,0 +1,133 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    padding: 30px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0;
+  }
+  
+  li {
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* navigation bar */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: rgb(0, 255, 145);
+    padding: 0.5em 1em;
+  }
+  
+  #navbar a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.2em;
+  }
+  
+  #navbar li {
+    list-style: none;
+  }
+  
+  /* search bar */
+  #search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 0.5em 1em;
+  }
+  
+  #search-container input {
+    flex-grow: 1;
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #search-container button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* logo */
+  #logo {
+    text-align: center;
+    margin: 1em;
+  }
+  
+  #logo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .reviews {
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .reviews h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .reviews .review {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .reviews .review h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .reviews .review p {
+    font-size: 14px;
+  }
+  .reviews .review .stars {
+    font-size: 14px;
+    color: #ffc107;
+  }
+    
